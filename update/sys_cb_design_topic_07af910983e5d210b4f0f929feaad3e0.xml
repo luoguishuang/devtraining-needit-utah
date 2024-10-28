@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_design_topic">
+    <sys_cb_design_topic action="INSERT_OR_UPDATE">
+        <compiled_topic display_value="_PRVW__ebd5f975061b46f292110f5122fec746">47af51c583e5d210b4f0f929feaad343</compiled_topic>
+        <design_definition>{"type":"FlowTopic","triggers":[{"type":"Trigger","name":"f92ded39c1ae4f67a1f77b6cfed98845","triggerType":"request","applicability":{"type":"Applicability","mode":"script","value":"true"},"id":"f92ded39c1ae4f67a1f77b6cfed98845"}],"goals":[{"name":"primary","trigger_id":"f92ded39c1ae4f67a1f77b6cfed98845","nodes":[{"type":"StartGoal","goal_id":"primary","greeting_msg":{"type":"String","mode":"string","value":""},"id":"7cf1c2509d9742ca8f1ce97e86fc7685","name":"Start","expert_mode":false},{"type":"TerminateGoal","goal_id":"primary","confirmation_msg":{"type":"String","mode":"string","value":""},"id":"e8ec88a807cf45b8896aa485e6c227f2","name":"End","expert_mode":false},{"type":"InputPrompt","variable_id":"ddffdc75f27c42d8b3ba560f6b6f8d27","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Enter your user id\", vaContext.getRequesterLang())"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":true},"request_feedback":true,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"id":"a6215c31fa1949f8a572c2abec970c5c","name":"User Id","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"formatType":"Text","validationScript":"","description":""},{"type":"InputPrompt","variable_id":"582de663d75342fe91a426d91543c99e","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Enter your office phone number\", vaContext.getRequesterLang())"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":true},"request_feedback":true,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"id":"702749d9495d4c8a8f8387c2999b22c8","name":"OfficePhone","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"formatType":"Text","validationScript":"","description":""},{"type":"ScriptedAction","script":"(function execute() {\n    var gr = new GlideRecord(\"sys_user\");\n    gr.addQuery(\"user_name\", vaInputs.user_id);\n    gr.addQuery(\"phone\", vaInputs.officephone);\n    gr.query();\n    if(gr.next()) {\n        vaVars.global_linkaccount_verification_userid = gr.getValue(\"sys_id\");\n    } else {\n        vaVars.global_linkaccount_verification_userid = \"\";\n    }\n})()\n","id":"b38f237751234de5bb63f9e2f443a471","name":"Script Node","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false}],"edges":[{"type":"Edge","source_node_id":"7cf1c2509d9742ca8f1ce97e86fc7685","target_node_id":"a6215c31fa1949f8a572c2abec970c5c","id":"ea5862cb6a184840b5f30c3d8080e028"},{"type":"Edge","source_node_id":"a6215c31fa1949f8a572c2abec970c5c","target_node_id":"702749d9495d4c8a8f8387c2999b22c8","id":"9b211a8e579146c38a7d5064b1483d40"},{"type":"Edge","source_node_id":"702749d9495d4c8a8f8387c2999b22c8","target_node_id":"b38f237751234de5bb63f9e2f443a471","id":"9111f1d20220415bb73d2e69d6158948"},{"type":"Edge","source_node_id":"b38f237751234de5bb63f9e2f443a471","target_node_id":"e8ec88a807cf45b8896aa485e6c227f2","id":"8686ee99081341dc91e705fcf5345047"}],"id":"primary"}],"script_variables":[],"glide_variables":[{"type":"Reference","table":"sys_user","id":"current-user","name":"user","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false},{"type":"String","name":"user_id","list":false,"id":"ddffdc75f27c42d8b3ba560f6b6f8d27","formatType":"Text","validationScript":"","secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"officephone","list":false,"id":"582de663d75342fe91a426d91543c99e","formatType":"Text","validationScript":"","secure":false,"sensitive":false,"aiInput":false}],"applicability":{"type":"Applicability","mode":"script","value":"true"},"roles":["public"],"scope":"global","domain":"global","topic_type":"STANDARD","channels":[],"dialog_acts_enabled":false,"id":"c76c35abeb2951102b57e5306952288d","name":"_PRVW__ebd5f975061b46f292110f5122fec746","key_phrases":["Account Link User Validation(Template)"],"nlu_provider":"","nlu_model":"","nlu_model_label":"","nlu_intent":"","nlu_intent_label":"","flexible_conversation_switching":false,"autopilot_topic":false,"design_categories":[],"triggerable_by_notification":false,"description":"The topic is used to collect the information and validate if user is not identified in the system. This is a template topic. The topic author has to clone this and modify this as per the channel requirements.","model_type":"nlu_keyword","foundational":false,"modify_confirmation_enabled":false,"context_profiles":[],"title":"Account Link User Validation(Template)","library":false,"csTopicId":"e5eeb5abeb2951102b57e5306952282c","readOnly":true,"nluMapping":"[]"}</design_definition>
+        <design_topic_id>c76c35abeb2951102b57e5306952288d</design_topic_id>
+        <graph>{
+  "graph_api_version": "1.0.41",
+  "goals": {
+    "primary": {
+      "id": "primary",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "7cf1c2509d9742ca8f1ce97e86fc7685": {
+          "id": "7cf1c2509d9742ca8f1ce97e86fc7685",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "e8ec88a807cf45b8896aa485e6c227f2": {
+          "id": "e8ec88a807cf45b8896aa485e6c227f2",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "a6215c31fa1949f8a572c2abec970c5c": {
+          "id": "a6215c31fa1949f8a572c2abec970c5c",
+          "stepType": "Prompt",
+          "name": "User Id",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Enter your user id"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "ddffdc75f27c42d8b3ba560f6b6f8d27",
+          "inputType": {
+            "format": "Text",
+            "script": ""
+          }
+        },
+        "702749d9495d4c8a8f8387c2999b22c8": {
+          "id": "702749d9495d4c8a8f8387c2999b22c8",
+          "stepType": "Prompt",
+          "name": "OfficePhone",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Enter your office phone number"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "582de663d75342fe91a426d91543c99e",
+          "inputType": {
+            "format": "Text",
+            "script": ""
+          }
+        },
+        "b38f237751234de5bb63f9e2f443a471": {
+          "id": "b38f237751234de5bb63f9e2f443a471",
+          "name": "Script Node",
+          "script": "(function execute() {\n    var gr = new GlideRecord(\"sys_user\");\n    gr.addQuery(\"user_name\", vaInputs.user_id);\n    gr.addQuery(\"phone\", vaInputs.officephone);\n    gr.query();\n    if(gr.next()) {\n        vaVars.global_linkaccount_verification_userid = gr.getValue(\"sys_id\");\n    } else {\n        vaVars.global_linkaccount_verification_userid = \"\";\n    }\n})()\n",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        }
+      },
+      "edges": [
+        {
+          "id": "ea5862cb6a184840b5f30c3d8080e028",
+          "edgeType": "Edge",
+          "source": "7cf1c2509d9742ca8f1ce97e86fc7685",
+          "target": "a6215c31fa1949f8a572c2abec970c5c",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "9b211a8e579146c38a7d5064b1483d40",
+          "edgeType": "Edge",
+          "source": "a6215c31fa1949f8a572c2abec970c5c",
+          "target": "702749d9495d4c8a8f8387c2999b22c8",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "9111f1d20220415bb73d2e69d6158948",
+          "edgeType": "Edge",
+          "source": "702749d9495d4c8a8f8387c2999b22c8",
+          "target": "b38f237751234de5bb63f9e2f443a471",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "8686ee99081341dc91e705fcf5345047",
+          "edgeType": "Edge",
+          "source": "b38f237751234de5bb63f9e2f443a471",
+          "target": "e8ec88a807cf45b8896aa485e6c227f2",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    },
+    "ddffdc75f27c42d8b3ba560f6b6f8d27": {
+      "id": "ddffdc75f27c42d8b3ba560f6b6f8d27",
+      "name": "user_id",
+      "label": "User Id",
+      "varType": "string",
+      "secure": false,
+      "category": "vaInputs",
+      "encryptionHashFunction": "SHA-256",
+      "encryptionSalt": {
+        "value": "MTY2MjAzMTg3MjU1MyBWQSBEZXNpZ25lciBpcyBhd2Vzb21l",
+        "mode": "simple"
+      },
+      "nodeId": "a6215c31fa1949f8a572c2abec970c5c",
+      "isHidden": false
+    },
+    "582de663d75342fe91a426d91543c99e": {
+      "id": "582de663d75342fe91a426d91543c99e",
+      "name": "officephone",
+      "label": "OfficePhone",
+      "varType": "string",
+      "secure": false,
+      "category": "vaInputs",
+      "encryptionHashFunction": "SHA-256",
+      "encryptionSalt": {
+        "value": "MTY2MjAzMTg5MDQyMiBWQSBEZXNpZ25lciBpcyBhd2Vzb21l",
+        "mode": "simple"
+      },
+      "nodeId": "702749d9495d4c8a8f8387c2999b22c8",
+      "isHidden": false
+    }
+  }
+}</graph>
+        <name>_PRVW__ebd5f975061b46f292110f5122fec746</name>
+        <sys_class_name>sys_cb_design_topic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-27 23:44:56</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>07af910983e5d210b4f0f929feaad3e0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>FlowTopic</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_cb_design_topic_07af910983e5d210b4f0f929feaad3e0</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-27 23:44:56</sys_updated_on>
+        <type>FlowTopic</type>
+    </sys_cb_design_topic>
+</record_update>
